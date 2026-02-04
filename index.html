@@ -74,9 +74,9 @@ connectButton.onclick = async () => {
 
   try {
     bleDevice = await navigator.bluetooth.requestDevice({
-      acceptAllDevices: true,
-      optionalServices: [SERVICE_UUID]
-    });
+  filters: [{ services: [SERVICE_UUID] }]
+});
+
 
     bleDevice.addEventListener('gattservicedisconnected', onDisconnected);
 
@@ -146,3 +146,4 @@ function writeLED(val) {
 
 </body>
 </html>
+
