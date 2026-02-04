@@ -74,7 +74,10 @@ connectButton.onclick = async () => {
 
   try {
     bleDevice = await navigator.bluetooth.requestDevice({
-  filters: [{ services: [SERVICE_UUID] }]
+  filters: [
+    { name: "ESP32-Temp" }
+  ],
+  optionalServices: [SERVICE_UUID]
 });
 
 
@@ -146,4 +149,5 @@ function writeLED(val) {
 
 </body>
 </html>
+
 
